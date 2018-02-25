@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Cookie Clicker</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+
+    <script>
+      var cookies = 0;
+      var increment = 1;
+      var crunch = new Audio();
+      crunch.src = "Sounds/crunch.mp3";
+      function clickCookie() {
+        cookies += increment;
+        if (cookies == 1) {
+          document.getElementById("count").innerHTML = cookies + " Cookie";
+        } else {
+          document.getElementById("count").innerHTML = cookies + " Cookies";
+        }
+
+        if (crunch.paused) {
+            crunch.play();
+        } else {
+            crunch.currentTime = 0
+        }
+      }
+
+      var laborCost = 5;
+      var laborers = 0;
+      var shout = new Audio();
+      shout.src = "Sounds/shout.mp3";
+      function hireLabor() {
+        if (cookies >= laborCost) {
+          increment++;
+          document.getElementById("cookie").innerHTML = increment;
+
+          laborers++;
+          document.getElementById("laborCount").innerHTML = "Laborers: " + laborers;
+
+          cookies -= laborCost;
+          if (cookies == 1) {
+            document.getElementById("count").innerHTML = cookies + " Cookie";
+          } else {
+            document.getElementById("count").innerHTML = cookies + " Cookies";
+          }
+
+          laborCost *= 2;
+          document.getElementById("labor").innerHTML = "Hire Labor (" + laborCost + " Cookies)";
+
+          if (shout.paused) {
+              shout.play();
+          } else {
+              shout.currentTime = 0
+          }
+        }
+      }
+
+      var timeIncrement = 0;
+      var robotCost = 10;
+      var robots = 0;
+      var blip = new Audio();
+      blip.src = "Sounds/robot.mp3";
+      function hireRobot() {
+        if (cookies >= robotCost) {
+
+          timeIncrement += 1;
+          document.getElementById("timeIncrement").innerHTML = "+" + timeIncrement * 5 + " Cookies per Second";
+          var timer = setInterval(addIncrement, 200);
+
+          robots++;
+          document.getElementById("robotCount").innerHTML = "Robots: " + robots;
+
+          cookies -= robotCost;
+          if (cookies == 1) {
+            document.getElementById("count").innerHTML = cookies + " Cookie";
+          } else {
+            document.getElementById("count").innerHTML = cookies + " Cookies";
+          }
+
+          robotCost *= 5;
+          document.getElementById("robot").innerHTML = "Make Robot (" + robotCost + " Cookies)";
+
+          if (blip.paused) {
+              blip.play();
+          } else {
+              blip.currentTime = 0
+          }
+        }
+      }
+
+      function addIncrement() {
+        cookies += timeIncrement;
+        if (cookies == 1) {
+          document.getElementById("count").innerHTML = cookies + " Cookie";
+        } else {
+          document.getElementById("count").innerHTML = cookies + " Cookies";
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <p id="count">0 Cookies</p>
+    <p id="timeIncrement">+0 Cookies per Second</p>
+    <button id="cookie" type="button" onclick="clickCookie()">1</button>
+
+    <button id="labor" type="button" onclick="hireLabor()">Hire Labor (5 Cookies)</button>
+    <p id="laborCount">Laborers: 0</p>
+
+    <button id="robot" type="button" onclick="hireRobot()">Make Robot (10 Cookies)</button>
+    <p id="robotCount">Robots: 0</p>
+  </body>
+
+</html>
