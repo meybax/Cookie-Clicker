@@ -3,6 +3,7 @@
 
   <head>
     <title>Cookie Clicker</title>
+    <!-- imports style sheet (CSS) -->
     <link rel="stylesheet" type="text/css" href="Style.css">
 
     <script>
@@ -10,7 +11,9 @@
       var increment = 1;
       var crunch = new Audio();
       crunch.src = "Sounds/crunch.mp3";
+      // function for when cookie is clicked
       function clickCookie() {
+         // adds cookies per click to total cookies
         cookies += increment;
         if (cookies == 1) {
           document.getElementById("count").innerHTML = cookies + " Cookie";
@@ -18,6 +21,7 @@
           document.getElementById("count").innerHTML = cookies + " Cookies";
         }
 
+        // plays sound effect for cookie
         if (crunch.paused) {
             crunch.play();
         } else {
@@ -29,14 +33,18 @@
       var laborers = 0;
       var shout = new Audio();
       shout.src = "Sounds/shout.mp3";
+      // when hire labor button is clicked
       function hireLabor() {
         if (cookies >= laborCost) {
+          // updates cookies per click
           increment++;
           document.getElementById("cookie").innerHTML = increment;
 
+          // updates number of laborers
           laborers++;
           document.getElementById("laborCount").innerHTML = "Laborers: " + laborers;
 
+          // updates cookie based on cost
           cookies -= laborCost;
           if (cookies == 1) {
             document.getElementById("count").innerHTML = cookies + " Cookie";
@@ -44,9 +52,11 @@
             document.getElementById("count").innerHTML = cookies + " Cookies";
           }
 
+          // updates cost of labor per laborer bought
           laborCost *= 2;
           document.getElementById("labor").innerHTML = "Hire Labor (" + laborCost + " Cookies)";
 
+          // sound effect for labor
           if (shout.paused) {
               shout.play();
           } else {
@@ -60,16 +70,21 @@
       var robots = 0;
       var blip = new Audio();
       blip.src = "Sounds/robot.mp3";
-      function hireRobot() {
+      // when robot is made function
+      function makeRobot() {
+        // only changes things if the user has enough cookies
         if (cookies >= robotCost) {
 
-          timeIncrement += 1;
+          // updates cookies per second
+          timeIncrement += 1; // this variable updates cookies per 200 milliseconds
           document.getElementById("timeIncrement").innerHTML = "+" + timeIncrement * 5 + " Cookies per Second";
           var timer = setInterval(addIncrement, 200);
 
+          // updages number of robots
           robots++;
           document.getElementById("robotCount").innerHTML = "Robots: " + robots;
 
+          // updates number of cookies based on cost
           cookies -= robotCost;
           if (cookies == 1) {
             document.getElementById("count").innerHTML = cookies + " Cookie";
@@ -77,9 +92,11 @@
             document.getElementById("count").innerHTML = cookies + " Cookies";
           }
 
+          // updates cost of robot based on number of robots bought
           robotCost *= 5;
           document.getElementById("robot").innerHTML = "Make Robot (" + robotCost + " Cookies)";
 
+          // plays sound effect for robot
           if (blip.paused) {
               blip.play();
           } else {
@@ -88,6 +105,7 @@
         }
       }
 
+      // function for adding cookies per second
       function addIncrement() {
         cookies += timeIncrement;
         if (cookies == 1) {
@@ -100,14 +118,17 @@
   </head>
 
   <body>
+    <!-- cookies count and button -->
     <p id="count">0 Cookies</p>
     <p id="timeIncrement">+0 Cookies per Second</p>
     <button id="cookie" type="button" onclick="clickCookie()">1</button>
 
+    <!-- labor count and button -->
     <button id="labor" type="button" onclick="hireLabor()">Hire Labor (5 Cookies)</button>
     <p id="laborCount">Laborers: 0</p>
 
-    <button id="robot" type="button" onclick="hireRobot()">Make Robot (10 Cookies)</button>
+    <!-- robot count and button -->
+    <button id="robot" type="button" onclick="makeRobot()">Make Robot (10 Cookies)</button>
     <p id="robotCount">Robots: 0</p>
   </body>
 
