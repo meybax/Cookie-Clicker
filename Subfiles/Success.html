@@ -8,6 +8,9 @@
 
     <script>
       window.onload= function() {
+        var success = new Audio();
+        success.src = "Sounds/success.mp3";
+        success.play();
         document.getElementById("points").innerHTML = "Score: " + sessionStorage.getItem("s");
       }
       function restart() {
