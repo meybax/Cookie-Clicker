@@ -1,0 +1,109 @@
+body {
+  background-color: green;
+  text-align: center;
+}
+
+/* start page */
+#title {
+  margin-top: 50px;
+  font-size: 100px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  margin-bottom: 0px;
+}
+
+#challenge {
+  font-size: 50px;
+  margin-top: 50px;
+}
+
+/* cookie clicker game page */
+#cookie {
+  float: left;
+  height: 400px;
+  width: 400px;
+  background-color: brown;
+  border-radius: 200px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-size: 200px;
+  border-width: 0;
+  margin-left: 100px;
+  background-image: url(Images/cookie.png);
+  background-size: 450px, 450px;
+  background-position: center;
+}
+
+#count {
+  font-size: 50px;
+  color: black;
+  background-color: white;
+  margin-bottom: 0px;
+}
+
+#timeIncrement {
+  margin-top: 0px;
+  font-size: 50px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#labor {
+  font-size: 50px;
+  float: right;
+  margin-right: 50px;
+  margin-bottom: 0px;
+}
+
+#laborCount {
+  margin-top: 0px;
+  font-size: 50px;
+  float: right;
+  margin-right: 50px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#robot {
+  font-size: 50px;
+  float: right;
+  margin-right: 50px;
+  margin-bottom: 0px;
+}
+
+#robotCount {
+  margin-top: 0px;
+  font-size: 50px;
+  float: right;
+  margin-right: 50px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#score {
+  margin-top: 100px;
+  float: right;
+  margin-right: 0px;
+  font-size: 50px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  margin-bottom: 0px;
+}
+
+#goal {
+  float: right;
+  margin-right: 100px;
+  margin-top: 10px;
+  font-size: 50px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+/* success page */
+#success {
+  margin-top: 50px;
+  font-size: 200px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  margin-bottom: 0px;
+}
+#points {
+  margin-top: 50px;
+  font-size: 50px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+#retry {
+  font-size: 50px;
+}

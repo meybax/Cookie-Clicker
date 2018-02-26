@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Cookie Clicker</title>
+    <!-- imports style sheet (CSS) -->
+    <link rel="stylesheet" type="text/css" href="Style.css">
+
+    <script>
+      window.onload= function() {
+        document.getElementById("points").innerHTML = "Score: " + sessionStorage.getItem("s");
+      }
+      function restart() {
+        window.open("../Cookie Clicker Main.html","_self");
+      }
+    </script>
+  </head>
+
+  <body>
+    <p id="success">Success!</p>
+    <p id="points"></p>
+    <button id="retry" type="button" onclick="restart()">Try Again?</button>
+  </body>
+
+</html>
