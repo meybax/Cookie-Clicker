@@ -66,6 +66,7 @@
       }
 
       var timeIncrement = 0;
+      var timer = setInterval(addIncrement, 200); // starts adding cookies passively
       var robotCost = 10;
       var robots = 0;
       var blip = new Audio();
@@ -75,10 +76,9 @@
         // only changes things if the user has enough cookies
         if (cookies >= robotCost) {
 
-          // updates cookies per second
+          // updates cookies per second added passively
           timeIncrement += 1; // this variable updates cookies per 200 milliseconds
           document.getElementById("timeIncrement").innerHTML = "+" + timeIncrement * 5 + " Cookies per Second";
-          var timer = setInterval(addIncrement, 200);
 
           // updages number of robots
           robots++;
