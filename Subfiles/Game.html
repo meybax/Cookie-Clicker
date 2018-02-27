@@ -7,19 +7,37 @@
     <link rel="stylesheet" type="text/css" href="Style.css">
 
     <script>
+      var goal = sessionStorage.getItem("mode");
+      var score = goal;
+      window.onload = function() {
+        if (goal == 0) {
+          document.getElementById("goal").style.display = "none";
+          document.getElementById("score").style.display = "none";
+        }
+      }
+
       var cookies = 0;
       var increment = 1;
       var crunch = new Audio();
       crunch.src = "Sounds/crunch.mp3";
       // function for when cookie is clicked
       function clickCookie() {
+        // decreases score each click
+        score -= 1;
+        document.getElementById("score").innerHTML = "Score: " + score;
+
          // adds cookies per click to total cookies
         cookies += increment;
+        if (cookies >= goal && goal != 0) {
+          sessionStorage.setItem("s",score);
+          window.open("Success.html","_self");
+        }
         if (cookies == 1) {
           document.getElementById("count").innerHTML = cookies + " Cookie";
         } else {
           document.getElementById("count").innerHTML = cookies + " Cookies";
         }
+        document.getElementById("goal").innerHTML = "Cookies Until Goal: " + (goal - cookies);
 
         // plays sound effect for cookie
         if (crunch.paused) {
@@ -51,6 +69,7 @@
           } else {
             document.getElementById("count").innerHTML = cookies + " Cookies";
           }
+          document.getElementById("goal").innerHTML = "Cookies Until Goal: " + (goal - cookies);
 
           // updates cost of labor per laborer bought
           laborCost *= 2;
@@ -91,6 +110,7 @@
           } else {
             document.getElementById("count").innerHTML = cookies + " Cookies";
           }
+          document.getElementById("goal").innerHTML = "Cookies Until Goal: " + (goal - cookies);
 
           // updates cost of robot based on number of robots bought
           robotCost *= 5;
@@ -107,12 +127,21 @@
 
       // function for adding cookies per second
       function addIncrement() {
+        // decreases score over time
+        score -= 1;
+        document.getElementById("score").innerHTML = "Score: " + score;
+
         cookies += timeIncrement;
+        if (cookies >= goal && goal != 0) {
+          sessionStorage.setItem("s",score);
+          window.open("Success.html","_self");
+        }
         if (cookies == 1) {
           document.getElementById("count").innerHTML = cookies + " Cookie";
         } else {
           document.getElementById("count").innerHTML = cookies + " Cookies";
         }
+        document.getElementById("goal").innerHTML = "Cookies Until Goal: " + (goal - cookies);
       }
     </script>
   </head>
@@ -130,6 +159,10 @@
     <!-- robot count and button -->
     <p><button id="robot" type="button" onclick="makeRobot()">Make Robot (10 Cookies)</button></p>
     <p id="robotCount">Robots: 0</p>
+
+    <!-- score and goal -->
+    <p id="score"></p>
+    <p id="goal"></p>
   </body>
 
 </html>

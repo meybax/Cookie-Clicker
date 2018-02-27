@@ -8,16 +8,20 @@
 
     <script>
       function goTo10000() {
-        window.open("Subfiles/10,000 Goal.html","_self")
+        sessionStorage.setItem("mode",10000);
+        window.open("Subfiles/Game.html","_self")
       }
       function goTo100000() {
-        window.open("Subfiles/100,000 Goal.html","_self")
+        sessionStorage.setItem("mode",100000);
+        window.open("Subfiles/Game.html","_self")
       }
       function goTo1000000() {
-        window.open("Subfiles/1,000,000 Goal.html","_self")
+        sessionStorage.setItem("mode",1000000);
+        window.open("Subfiles/Game.html","_self")
       }
       function goToUnlimited() {
-        window.open("Subfiles/Continuous.html","_self")
+        sessionStorage.setItem("mode",0);
+        window.open("Subfiles/Game.html","_self")
       }
     </script>
   </head>
